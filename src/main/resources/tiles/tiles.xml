@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+  <!-- main -->
+  <definition name="main"
+    template="/WEB-INF/views/templates/template.jsp">
+    <put-attribute name="header"
+      value="/WEB-INF/views/templates/top.jsp" />
+  </definition>
+  <definition name="/home" extends="main">
+    <put-attribute name="title" value="기본페이지"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/index.jsp" />
+  </definition>
+  <definition name="/bbs/list" extends="main">
+    <put-attribute name="title" value="게시판목록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/list.jsp" />
+  </definition>
+  <definition name="/bbs/create" extends="main">
+    <put-attribute name="title" value="게시판등록"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/createForm.jsp" />
+  </definition>
+  <definition name="/bbs/read" extends="main">
+    <put-attribute name="title" value="게시판읽기"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/read.jsp" />
+  </definition>
+  <definition name="/bbs/update" extends="main">
+    <put-attribute name="title" value="게시판수정"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/updateForm.jsp" />
+  </definition>
+  <definition name="/bbs/error" extends="main">
+    <put-attribute name="title" value="게시판에러"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/error.jsp" />
+  </definition>
+  <definition name="/bbs/passwdError" extends="main">
+    <put-attribute name="title" value="패스워드에러"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/passwdError.jsp" />
+  </definition>
+  <definition name="/bbs/reply" extends="main">
+    <put-attribute name="title" value="게시판답변"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/replyForm.jsp" />
+  </definition>
+  <definition name="/bbs/delete" extends="main">
+    <put-attribute name="title" value="게시판삭제"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/deleteForm.jsp" />
+  </definition>
+ 
+</tiles-definitions>
