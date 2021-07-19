@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="util" uri="/ELFunctions" %>
-<%@ include file="/ssi/ssi_bbs.jsp" %>
+<%-- <%@ include file="/ssi/ssi_bbs.jsp" %> --%>
 
 <%-- <% 
 	String col = (String)request.getAttribute("col");
