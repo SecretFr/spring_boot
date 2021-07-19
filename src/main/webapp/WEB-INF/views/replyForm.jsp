@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ include file="/ssi/ssi_bbs.jsp" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ include file="/ssi/ssi_bbs.jsp" %> 
 <%   
     BbsDTO dto = (BbsDTO)request.getAttribute("dto");
- %>
+ %> --%>
 
 <!DOCTYPE html> 
 <html> 
@@ -19,10 +20,10 @@
       enctype="multipart/form-data"
       >
 
-  <input type="hidden" name="bbsno" value="<%=dto.getBbsno() %>">
-  <input type="hidden" name="grpno" value="<%=dto.getGrpno() %>">
-  <input type="hidden" name="indent" value="<%=dto.getIndent() %>">
-  <input type="hidden" name="ansnum" value="<%=dto.getAnsnum() %>">
+  <input type="hidden" name="bbsno" value="${ dto.bbsno }">
+  <input type="hidden" name="grpno" value="${ dto.grpno } ">
+  <input type="hidden" name="indent" value="${ dto.indent }">
+  <input type="hidden" name="ansnum" value="${ dto.ansnum }">
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="wname">작성자</label>
@@ -34,7 +35,7 @@
     <label class="control-label col-sm-2" for="title">제목</label>
     <div class="col-sm-8">
       <input type="text" name="title" id="title" 
-      class="form-control" value="<%=dto.getTitle()%>">
+      class="form-control" value="${ dto.title }">
     </div>
   </div>
   
@@ -56,7 +57,7 @@
     <label class="control-label col-sm-2" for="filenameMF">파일</label>
     <div class="col-sm-6">
       <input type="file" name="filenameMF" id="filenameMF" class="form-control">
-    	(<%=dto.getFilename() %>>)
+    	(${ dto.filename })
     </div>
   </div>
   

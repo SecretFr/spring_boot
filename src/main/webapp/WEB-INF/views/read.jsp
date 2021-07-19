@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %> 
-<%@ include file="/ssi/ssi_bbs.jsp" %>
+<%-- <%@ include file="/ssi/ssi_bbs.jsp" %>
 <%    
      
 	BbsDTO dto = (BbsDTO) request.getAttribute("dto");
@@ -8,7 +8,7 @@
     String nowPage = request.getParameter("nowPage");
     String col = request.getParameter("col");
     String word = request.getParameter("word");
-%> 
+%>  --%>
 
 <!DOCTYPE html> 
 <html> 
@@ -19,29 +19,29 @@
   <script type="text/javascript">
     function updateM(){
       var url = "update";
-      url += "?bbsno=<%=dto.getBbsno()%>";
+      url += "?bbsno=${dto.bbsno}";
       
       location.href=url;
     }
     function deleteM(){
       var url = "delete";
-      url += "?bbsno=<%=dto.getBbsno()%>";
-      url += "&oldfile=<%=dto.getFilename()%>";
+      url += "?bbsno=${ dto.bbsno }";
+      url += "&oldfile=${ dto.filename }";
       
       location.href=url;
     }
     function replyM(){
         var url = "reply";
-        url += "?bbsno=<%=dto.getBbsno()%>";
+        url += "?bbsno=${ dto.bbsno }";
         
         location.href=url;
       }
     
     function listM(){
         var url = "list";
-        url += "?nowPage=<%=nowPage%>";
-        url += "&col=<%=col%>";
-        url += "&word=<%=word%>";
+        url += "?nowPage=${param.nowPage}";
+        url += "&col=${param.col}";
+        url += "&word=${param.word}";
         location.href=url;
       }
   </script>
@@ -53,22 +53,22 @@
 <h2>조회</h2>
 <div class="panel panel-default">
 <div class="panel-heading">작성자</div>
-<div class="panel-body"><%=dto.getWname() %></div>
+<div class="panel-body">${ dto.wname }</div>
 
 <div class="panel-heading">제목</div>
-<div class="panel-body"><%=dto.getTitle() %></div>
+<div class="panel-body">${ dto.title }</div>
 
 <div class="panel-heading">내용</div>
-<div class="panel-body" style="height: 150px"><%=dto.getContent() %></div>
+<div class="panel-body" style="height: 150px">${ dto.content }</div>
 
 <div class="panel-heading">조회수</div>
-<div class="panel-body"><%=dto.getViewcnt() %></div>
+<div class="panel-body">${ dto.viewcnt }</div>
 
 <div class="panel-heading">등록일</div>
-<div class="panel-body"><%=dto.getWdate() %></div>
+<div class="panel-body">${ dto.wdate }</div>
 
 <div class="panel-heading">파일</div>
-<div class="panel-body"><%=dto.getFilename() %></div>
+<div class="panel-body">${ dto.filename }</div>
 </div>
 
 <div>
