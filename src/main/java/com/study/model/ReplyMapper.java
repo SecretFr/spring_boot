@@ -15,4 +15,6 @@ public interface ReplyMapper {
 	int delete(int rnum);
 
 	int total(int bbsno);
+	
+	int rcount(int bbsno);
 }

@@ -11,6 +11,26 @@ public class ReplyDTO {
 		return rnum;
 	}
 
+	@Override
+	public String toString() {
+		return "ReplyDTO [rnum=" + rnum + ", content=" + content + ", regdate=" + regdate + ", id=" + id + ", bbsno="
+				+ bbsno + "]";
+	}
+
+	public ReplyDTO(int rnum, String content, String regdate, String id, int bbsno) {
+		super();
+		this.rnum = rnum;
+		this.content = content;
+		this.regdate = regdate;
+		this.id = id;
+		this.bbsno = bbsno;
+	}
+
+	public ReplyDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setRnum(int rnum) {
 		this.rnum = rnum;
 	}

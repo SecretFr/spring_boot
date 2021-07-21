@@ -11,7 +11,13 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.study.model.ReplyMapper;
+
 public class Utility {
+
+	public static int rcount(int bbsno, ReplyMapper rmapper) {
+		return rmapper.rcount(bbsno);
+	}
 
 	/**
 	 * 오늘,어제,그제 날짜 가져오기

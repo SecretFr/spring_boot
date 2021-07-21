@@ -117,7 +117,13 @@
 					<c:if test="${ dto.indent > 0 }">
 						<img src='../images/re.jpg'>
 					</c:if>
+					
+					<c:set var="rcount" value="${util:rcount(dto.bbsno,rmapper) }"/>
 					<a href="javascript:read('${ dto.bbsno }')">${ dto.title }</a>
+					<c:if test="${rcount>0 }">
+            			<span class="badge">${rcount}</span>
+    				</c:if>
+					
 					<c:if test="${ util:newImg(fn:substring(dto.wdate,0,10)) }">
 						<img src="../images/new.gif">
 					</c:if>

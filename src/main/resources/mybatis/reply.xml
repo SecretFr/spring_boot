@@ -43,15 +43,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="com.study.model.ReplyDTO">
 		update reply
-		set content = #{content}
+		set content =
+		#{content}
 		where rnum = #{rnum}
 
 	</update>
 
 	<delete id="delete" parameterType="int">
 		delete from REPLY
-		where rnum = #{rnum}
+		where rnum =
+		#{rnum}
 	</delete>
+
+	<select id="rcount" parameterType="int" resultType="int">
+		SELECT count(*) FROM reply
+		WHERE bbsno = #{bbsno}
+	</select>
+
 
 
 

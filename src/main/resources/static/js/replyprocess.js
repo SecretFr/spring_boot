@@ -15,7 +15,7 @@ function showList() {
 				str += "<li class='list-group-item' data-rnum='" + list[i].rnum + "'>";
 				str += "<div><div class='header'><strong class='primary-font'>" + list[i].id + "</strong>";
 				str += "<small class='pull-right text-muted'>" + list[i].regdate + "</small></div>";
-				str += replaceAll(list[i].content, '\n', '<br>')   "</div></li>";
+				str += replaceAll(list[i].content, '\n', '<br>') + "</div></li>";
 			}
 
 			replyUL.html(str);
@@ -33,7 +33,7 @@ var replyPageFooter = $(".panel-footer");
 
 var param = "nPage=" + nPage;
 param += "&nowPage=" + nowPage;
-param += "&bbsno="   bbsno;
+param += "&bbsno=" + bbsno;
 param += "&col=" + colx;
 param += "&word=" + wordx;
 

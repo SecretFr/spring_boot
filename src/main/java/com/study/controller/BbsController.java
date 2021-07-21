@@ -26,12 +26,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.model.BbsDTO;
 import com.study.model.BbsMapper;
+import com.study.model.ReplyMapper;
 import com.study.utility.Utility;
 
 @Controller
 public class BbsController {
 	@Autowired
 	private BbsMapper mapper;
+	@Autowired
+	private ReplyMapper rmapper;
 
 	@GetMapping("/bbs/fileDown")
 	public void fileDown(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -345,6 +348,10 @@ public class BbsController {
 		request.setAttribute("col", col);
 		request.setAttribute("word", word);
 		request.setAttribute("paging", paging);
+
+		// list.jsp에서 댓글 갯수 가져올 <util:rcount(num,rmapper)>에서 사용할
+		// rmapper(ReplyMapper)의 값을 request 객체에 담는다.
+		request.setAttribute("rmapper", rmapper);
 
 		return "/bbs/list";
 	}
