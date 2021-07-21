@@ -10,6 +10,35 @@
 <head>
   <title>homepage</title>
   <meta charset="utf-8">
+  <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js">     </script>
+  <script type="text/JavaScript">
+ $(function() {
+         CKEDITOR.replace('content'); // <TEXTAREA>태그 id 값
+         });
+ 
+ function checkIn(f){
+     if (f.wname.value == ""){
+             alert("글쓴이를 입력하세요");
+             f.wname.focus()
+             return false;
+     }
+     if (f.title.value == ""){
+             alert("제목를 입력하세요");
+             f.title.focus();
+             return false;
+     }
+     if (CKEDITOR.instances['content'].getData() == '') {
+         window.alert('내용을 입력해 주세요.');
+         CKEDITOR.instances['content'].focus();
+         return false;
+     }
+     if (f.passwd.value == ""){
+             alert("패스워드를 입력하세요");
+             f.passwd.focus();
+             return false;
+     }
+}
+ </script>
 </head>
 <body> 
 <div class="container">
@@ -18,6 +47,7 @@
       action="reply"
       method="post"
       enctype="multipart/form-data"
+      onsubmit="return checkIn(this)"
       >
 
   <input type="hidden" name="bbsno" value="${ dto.bbsno }">
@@ -42,7 +72,7 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="content">내용</label>
     <div class="col-sm-8">
-    <textarea rows="12" cols="7" id="content" name="content" class="form-control"></textarea>
+    <textarea rows="12" cols="7" id="content" name="content" class="form-control">${ dto.content }</textarea>
     </div>
   </div>
   

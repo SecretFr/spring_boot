@@ -9,6 +9,36 @@
 <head>
   <title>bbs 수정</title>
   <meta charset="utf-8">
+  <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
+	<script type="text/JavaScript">
+ 		$(function() {
+         CKEDITOR.replace('content'); // <TEXTAREA>태그 id 값
+   		});
+ 		
+ 		function checkIn(f){
+ 		     if (f.wname.value == ""){
+ 		             alert("글쓴이를 입력하세요");
+ 		             f.wname.focus()
+ 		             return false;
+ 		     }
+ 		     if (f.title.value == ""){
+ 		             alert("제목를 입력하세요");
+ 		             f.title.focus();
+ 		             return false;
+ 		     }
+ 		     if (CKEDITOR.instances['content'].getData() == '') {
+ 		         window.alert('내용을 입력해 주세요.');
+ 		         CKEDITOR.instances['content'].focus();
+ 		         return false;
+ 		     }
+ 		     if (f.passwd.value == ""){
+ 		             alert("패스워드를 입력하세요");
+ 		             f.passwd.focus();
+ 		             return false;
+ 		     }
+ 		}
+
+ 	</script>
 </head>
 <body> 
 
@@ -18,6 +48,7 @@
       action="update"
       method="post"
       enctype="multipart/form-data"
+      onsubmit="return checkIn(this)"
       >
 <input type="hidden" name="bbsno" value="${ dto.bbsno }">
 <input type="hidden" name="oldfile" value="${ dto.filename }">

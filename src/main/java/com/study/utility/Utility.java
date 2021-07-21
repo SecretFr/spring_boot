@@ -109,6 +109,7 @@ public class Utility {
 		String filename = "";
 		long filesize = mf.getSize();
 		String originalFilename = mf.getOriginalFilename();
+		System.out.println("basePath: " + basePath);
 		try {
 			if (filesize > 0) { // 파일이 존재한다면
 				// 인풋 스트림을 얻는다.
@@ -133,7 +134,7 @@ public class Utility {
 					filename = originalFilename;
 				}
 				// make server full path to save
-				String serverFullPath = basePath + "\\" + filename;
+				String serverFullPath = basePath + "/" + filename;
 
 				System.out.println("fileName: " + filename);
 				System.out.println("serverFullPath: " + serverFullPath);
@@ -165,6 +166,50 @@ public class Utility {
 		File file = new File(upDir, oldfile);
 		if (file.exists())
 			file.delete();
+
+	}
+
+	public static String rpaging(int total, int nowPage, int recordPerPage, String col, String word, String url,
+			int nPage, int bbsno) {
+		int pagePerBlock = 5; // 블럭당 페이지 수
+		int totalPage = (int) (Math.ceil((double) total / recordPerPage)); // 전체 페이지
+		int totalGrp = (int) (Math.ceil((double) totalPage / pagePerBlock));// 전체 그룹
+		int nowGrp = (int) (Math.ceil((double) nPage / pagePerBlock)); // 현재 그룹
+		int startPage = ((nowGrp - 1) * pagePerBlock) + 1; // 특정 그룹의 페이지 목록 시작
+		int endPage = (nowGrp * pagePerBlock); // 특정 그룹의 페이지 목록 종료
+
+		StringBuffer str = new StringBuffer();
+		str.append("<div style='text-align:center'>");
+		str.append("<ul class='pagination'> ");
+		int _nowPage = (nowGrp - 1) * pagePerBlock; // 10개 이전 페이지로 이동
+
+		if (nowGrp >= 2) {
+			str.append("<li><a href='" + url + "?col=" + col + "&word=" + word + "&nowPage=" + nowPage + "&bbsno="
+					+ bbsno + "&nPage=" + _nowPage + "'>이전</A></li>");
+		}
+
+		for (int i = startPage; i <= endPage; i++) {
+			if (i > totalPage) {
+				break;
+			}
+
+			if (nPage == i) {
+				str.append("<li class='active'><a href=#>" + i + "</a></li>");
+			} else {
+				str.append("<li><a href='" + url + "?col=" + col + "&word=" + word + "&nowPage=" + nowPage + "&bbsno="
+						+ bbsno + "&nPage=" + i + "'>" + i + "</A></li>");
+			}
+		}
+
+		_nowPage = (nowGrp * pagePerBlock) + 1; // 10개 다음 페이지로 이동
+		if (nowGrp < totalGrp) {
+			str.append("<li><A href='" + url + "?col=" + col + "&word=" + word + "&nowPage=" + nowPage + "&bbsno="
+					+ bbsno + "&nPage=" + _nowPage + "'>다음</A></li>");
+		}
+		str.append("</ul>");
+		str.append("</div>");
+
+		return str.toString();
 
 	}
 

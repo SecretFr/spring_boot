@@ -17,6 +17,7 @@
     color:red;
   }
   </style>
+  
 </head>
 <body> 
 <div class="container">
@@ -34,7 +35,7 @@
 			      method="post"
 			      >
 			  <input type="hidden" name="bbsno" value="${ param.bbsno } ">
-			  <input type="hidden" name="oldfile" value="${ param.oldfile }  %>">
+			  <input type="hidden" name="oldfile" value="${ param.oldfile } ">
 			  <div class="form-group">
 			    <label class="control-label col-sm-2" for="passwd">비밀번호</label>
 			    <div class="col-sm-6">

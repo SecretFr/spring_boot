@@ -28,6 +28,15 @@
        location.href=url;
 
      }
+     
+     function fileDown(filename){
+         var url = "./fileDown";
+         url += "?filename="+filename;
+         url += "&dir=/storage";
+         //alert(url);
+         location.href=url;
+     }
+
   
   </script>
 
@@ -120,7 +129,9 @@
 							파일없음
 						</c:when>
 						<c:otherwise>
-							${ dto.filename }
+							<a href="javascript:fileDown('${dto.filename}')">
+								${ dto.filename }
+							</a>		
 						</c:otherwise>
 					</c:choose>
 				</td>

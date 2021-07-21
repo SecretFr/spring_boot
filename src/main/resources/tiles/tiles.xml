@@ -55,5 +55,10 @@
     <put-attribute name="body"
       value="/WEB-INF/views/deleteForm.jsp" />
   </definition>
+  <definition name="/bbs/delete_Ajax" extends="main">
+    <put-attribute name="title" value="게시판삭제"></put-attribute>
+    <put-attribute name="body"
+      value="/WEB-INF/views/delete_Ajax.jsp" />
+  </definition>
  
 </tiles-definitions>
